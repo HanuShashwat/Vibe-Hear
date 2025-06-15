@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vibehear/pages/home.dart';
 import 'package:vibehear/pages/intro_page.dart';
+import 'package:vibehear/pages/support.dart';
 
 class SetupPage extends StatefulWidget {
   const SetupPage({super.key});
@@ -11,7 +12,9 @@ class SetupPage extends StatefulWidget {
 
 class _SetupPageState extends State<SetupPage> {
   TextEditingController firstNameController = TextEditingController();
+  TextEditingController middleNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
+  TextEditingController nickNameController = TextEditingController();
 
   void showValidationDialog() {
     showDialog(
@@ -86,7 +89,14 @@ class _SetupPageState extends State<SetupPage> {
                       size: 22,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) => const Support()
+                        ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -130,6 +140,7 @@ class _SetupPageState extends State<SetupPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextField(
                         controller: firstNameController,
+                        textCapitalization: TextCapitalization.words,
                         decoration: InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -167,6 +178,8 @@ class _SetupPageState extends State<SetupPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextField(
+                        controller: middleNameController,
+                        textCapitalization: TextCapitalization.words,
                         decoration: InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -209,6 +222,7 @@ class _SetupPageState extends State<SetupPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextField(
                         controller: lastNameController,
+                        textCapitalization: TextCapitalization.words,
                         decoration: InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -246,6 +260,8 @@ class _SetupPageState extends State<SetupPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: TextField(
+                        controller: nickNameController,
+                        textCapitalization: TextCapitalization.words,
                         decoration: InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -291,13 +307,22 @@ class _SetupPageState extends State<SetupPage> {
             GestureDetector(
               onTap: () {
                 String firstName = firstNameController.text.trim();
+                String middleName = middleNameController.text.trim();
                 String lastName = lastNameController.text.trim();
+                String nickName = nickNameController.text.trim();
                 if (firstName.isEmpty || lastName.isEmpty) {
                   showValidationDialog();
                 } else {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Home()),
+                    MaterialPageRoute(
+                        builder: (context) => Home(
+                          firstName: firstName,
+                          middleName: middleName,
+                          lastName: lastName,
+                          nickName: nickName,
+                        )
+                    ),
                   );
                 }
               },
