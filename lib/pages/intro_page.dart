@@ -12,18 +12,18 @@ class IntroPage extends StatelessWidget {
         child: Column(
           children: [
 
-            const SizedBox(height: 120),
+            const SizedBox(height: 90),
 
             // logo
             Padding(
               padding: const EdgeInsets.only(
                   top: 25.0,
                 left: 25.0,
-                right: 25.0,
+                right: 30.0,
               ),
               child: Image.asset(
                   'lib/images/logo_vibe_hear.png',
-                height: 240,
+                height: 200,
               ),
             ),
 
@@ -33,13 +33,13 @@ class IntroPage extends StatelessWidget {
                   'Vibe Hear',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 56,
-                  color: Colors.grey[900],
+                  fontSize: 52,
+                  color: Colors.grey[800],
                 ),
               ),
             ),
             
-            const SizedBox(height: 300),
+            const SizedBox(height: 150),
 
             // subtitle
             Center(
@@ -48,8 +48,9 @@ class IntroPage extends StatelessWidget {
                   "Feel the Sound\nStay Connected",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 32,
-                  color: Colors.grey[600]
+                  fontSize: 28,
+                  color: Colors.grey[600],
+                  height: 1.2,
                 ),
               ),
             ),
@@ -65,7 +66,7 @@ class IntroPage extends StatelessWidget {
               ),
               child: Center(
                 child: Container(
-                  width: 350,
+                  width: 280,
                   height: 60,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),

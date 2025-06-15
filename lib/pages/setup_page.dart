@@ -10,256 +10,322 @@ class SetupPage extends StatefulWidget {
 }
 
 class _SetupPageState extends State<SetupPage> {
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+
+  void showValidationDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: Text("Missing Information"),
+          content: Text("Please enter your 'First Name' and 'Last Name'."),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(
+                  "OK",
+                style: TextStyle(
+                    color: Color.fromRGBO(8, 129, 208, 1)
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(242, 250, 255, 1),
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Back arrow icon
-              GestureDetector(
-                onTap: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => IntroPage())
-                    ),
-                  child: Icon(
-                      Icons.arrow_back,
-                      size: 28
-                  )
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppBar(
+              backgroundColor: Colors.transparent,
+              leading: Builder(
+                  builder: (context) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 12.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Colors.grey.shade800,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(
+                            context,
+                          );
+                        },
+                      ),
+                    );
+                  }
               ),
-
-              SizedBox(height: 20),
-
-              // Title
-              Text(
-                "Setup Your Profile",
-                style: TextStyle(fontSize: 34,
+              title: Transform.translate(
+                offset: Offset(-14, 0),
+                child: Text(
+                    'Setup',
+                  style: TextStyle(
+                    color: Colors.grey[800],
                     fontWeight: FontWeight.bold,
+                    fontSize: 22
+                  ),
                 ),
               ),
-
-              SizedBox(height: 24),
-
-              // White box
-              Center(
-                child: Container(
-                  width: 400,
-                  height: 462,
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
+              actions: [
+                IconButton(
+                  icon: Padding(
+                    padding: const EdgeInsets.only(right: 12.0),
+                    child: Icon(
+                      Icons.headset_mic,
+                      color: Colors.grey.shade800,
+                      size: 22,
+                    ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 6.0),
-                              child: Text(
-                                'First Name',
-                                style: TextStyle(
+                  onPressed: () {},
+                ),
+              ],
+            ),
+
+            SizedBox(height: 2),
+
+            // White box
+            Center(
+              child: Container(
+                width: 300,
+                height: 414,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 6.0),
+                            child: Text(
+                              'First Name',
+                              style: TextStyle(
+                                color: Colors.grey[800],
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: TextField(
+                        controller: firstNameController,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                         border: OutlineInputBorder(
+                           borderRadius: BorderRadius.circular(8),
+                           borderSide: BorderSide(
+                             color: Colors.grey.shade800,
+                           )
+                         ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 18),
+
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 6.0),
+                            child: Text(
+                              'Middle Name',
+                              style: TextStyle(
                                   color: Colors.grey[800],
-                                  fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                ),
+                                  fontSize: 16
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                           border: OutlineInputBorder(
-                             borderRadius: BorderRadius.circular(8),
-                             borderSide: BorderSide(
-                               color: Colors.grey.shade800,
-                             )
-                           ),
                           ),
                         ),
-                      ),
+                      ],
+                    ),
 
-                      SizedBox(height: 18),
-
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 6.0),
-                              child: Text(
-                                'Middle Name',
-                                style: TextStyle(
-                                    color: Colors.grey[800],
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                ),
-                              ),
-                            ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                          hintText: "Optional",
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600]
                           ),
-                        ],
-                      ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade800,
+                              )
+                          ),
 
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Optional",
-                            hintStyle: TextStyle(
-                              color: Colors.grey[600]
-                            ),
-                            border: OutlineInputBorder(
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 18),
+
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 6.0),
+                            child: Text(
+                              'Last Name',
+                              style: TextStyle(
+                                  color: Colors.grey[800],
+                                fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: TextField(
+                        controller: lastNameController,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                          border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Colors.grey.shade800,
-                                )
-                            ),
-
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade800,
+                              )
                           ),
+
                         ),
                       ),
+                    ),
 
-                      SizedBox(height: 18),
+                    SizedBox(height: 18),
 
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 6.0),
-                              child: Text(
-                                'Last Name',
-                                style: TextStyle(
-                                    color: Colors.grey[800],
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 6),
+                            child: Text(
+                              'Nick Name',
+                              style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                ),),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Colors.grey.shade800,
-                                )
-                            ),
-
+                                  color: Colors.grey[800],
+                                  fontSize: 16
+                              ),),
                           ),
                         ),
-                      ),
+                      ],
+                    ),
 
-                      SizedBox(height: 18),
-
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 6),
-                              child: Text(
-                                'Nick Name',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[800],
-                                    fontSize: 16
-                                ),),
-                            ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                          hintText: "Optional",
+                          hintStyle: TextStyle(
+                              color: Colors.grey[600]
                           ),
-                        ],
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: "Optional",
-                            hintStyle: TextStyle(
-                                color: Colors.grey[600]
-                            ),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Colors.grey.shade800,
-                                )
-                            ),
-
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade800,
+                              )
                           ),
+
                         ),
                       ),
+                    ),
 
-                      SizedBox(height: 20),
-                    ],
+                    SizedBox(height: 20),
+                  ],
+                ),
+              ),
+            ),
+
+            SizedBox(height: 6),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 23, right: 23, top: 14),
+              child: Center(
+                child: Text(
+                  textAlign: TextAlign.center,
+                    'Your data stays private. This app works 100% offline — nothing ever leaves your phone.',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
+            ),
 
-              SizedBox(height: 12),
+            SizedBox(height: 37),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8, top: 14),
-                child: Center(
-                  child: Text(
-                    textAlign: TextAlign.center,
-                      'Your data stays private. This app works 100% offline — nothing ever leaves your phone.',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontStyle: FontStyle.italic,
-                    ),
+            GestureDetector(
+              onTap: () {
+                String firstName = firstNameController.text.trim();
+                String lastName = lastNameController.text.trim();
+                if (firstName.isEmpty || lastName.isEmpty) {
+                  showValidationDialog();
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                }
+              },
+              child: Center(
+                child: Container(
+                  width: 280,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Color.fromRGBO(8, 129, 208, 1),
                   ),
-                ),
-              ),
-
-              SizedBox(height: 162,),
-
-              GestureDetector(
-                onTap: () => Navigator.push(
-                  context, MaterialPageRoute(
-                    builder: (context) => Home()
-                ),
-                ),
-                child: Center(
-                  child: Container(
-                    width: 350,
-                    height: 60,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Color.fromRGBO(8, 129, 208, 1)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          'Proceed',
-                          style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white
-                          ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: Text(
+                        'Proceed',
+                        style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
                         ),
                       ),
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
