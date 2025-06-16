@@ -279,23 +279,26 @@ class Support extends StatelessWidget {
                                     color: Colors.grey[800],
                                   )
                               ),
+
+
                             ]
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    // logo
-                    Image.asset(
-                      'lib/images/service.png',
                     ),
                   ],
                 ),
               ),
 
-              SizedBox(
-                height: 15,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: double.infinity,
+                  child: Image.asset(
+                    'lib/images/service.png',
+                    height: 250,
+                    width: 250,
+                  ),
+                ),
               ),
 
 
