@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Support extends StatelessWidget {
   const Support({super.key});
@@ -49,6 +51,8 @@ class Support extends StatelessWidget {
                       TextSpan(
                         text: 'Need Help?',
                         style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
                           color: Color.fromRGBO(8, 129, 208, 1),
                         ),
                       ),
@@ -70,7 +74,7 @@ class Support extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                    "Ways To Reach Us:",
+                    "Ways To Contact Us:",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.grey[800],
@@ -89,38 +93,205 @@ class Support extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(
-                      'lib/images/whatsapp.png',
-                      height: 28,
-                      width: 28,
+                      'lib/images/call.png',
+                      height: 24,
+                      width: 24,
                     ),
-                    SizedBox(width: 8),
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          color: Colors.grey[800],
-                          fontSize: 18,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "WhatsApp - ",
+                    SizedBox(width: 12),
+                    Flexible(
+                      child: RichText(
+                        text: TextSpan(
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic,
                               color: Colors.grey[800],
+                              fontSize: 18,
                             ),
-                          ),
-                          TextSpan(
-                            text: "Click here or message\nus on +91-6201668873.",
-                            style: TextStyle(
-                              color: Colors.grey[800],
-                            )
-                          )
-                        ]
+                            children: [
+                              TextSpan(
+                                text: "Call - ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[800],
+                                ),
+                              ),
+                              TextSpan(
+                                  text: "Call us on 6201668873.",
+                                  style: TextStyle(
+                                    color: Colors.grey[800],
+                                  )
+                              ),
+                            ]
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+              Align(
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'lib/images/message.png',
+                      height: 24,
+                      width: 24,
+                    ),
+                    SizedBox(width: 12),
+                    Flexible(
+                      child: RichText(
+                        text: TextSpan(
+                            style: TextStyle(
+                              color: Colors.grey[800],
+                              fontSize: 18,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "SMS - ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[800],
+                                ),
+                              ),
+                              TextSpan(
+                                  text: "Text us on 6201668873.",
+                                  style: TextStyle(
+                                    color: Colors.grey[800],
+                                  )
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+              Align(
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'lib/images/gmail.png',
+                      height: 24,
+                      width: 24,
+                    ),
+                    SizedBox(width: 12),
+                    Flexible(
+                      child: RichText(
+                        text: TextSpan(
+                            style: TextStyle(
+                              color: Colors.grey[800],
+                              fontSize: 18,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "Gmail - ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[800],
+                                ),
+                              ),
+                              TextSpan(
+                                  text: "Email us on help@vibehear.in.",
+                                  style: TextStyle(
+                                    color: Colors.grey[800],
+                                  )
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+              Align(
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'lib/images/whatsapp.png',
+                      height: 26,
+                      width: 26,
+                    ),
+                    SizedBox(width: 10),
+                    Flexible(
+                      child: RichText(
+                        text: TextSpan(
+                            style: TextStyle(
+                              color: Colors.grey[800],
+                              fontSize: 18,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: "WhatsApp - ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[800],
+                                ),
+                              ),
+
+                              TextSpan(
+                                  text: "Message us on +91 6201668873 or click ",
+                                  style: TextStyle(
+                                    color: Colors.grey[800],
+                                  )
+                              ),
+
+                              TextSpan(
+                                  text: "here",
+                                  style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    color: Color.fromRGBO(8, 129, 208, 1),
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                recognizer: TapGestureRecognizer()
+                                ..onTap = () async {
+                                  final Uri url = Uri.parse('https://wa.me/916201668873');
+                              if (await canLaunchUrl(url)) {
+                              await launchUrl(url, mode: LaunchMode.externalApplication);
+                              } else {
+                              throw 'Could not launch $url';
+                                //print('Could not launch $url');
+                              }
+                              },
+                              ),
+                              TextSpan(
+                                  text: ".",
+                                  style: TextStyle(
+                                    color: Colors.grey[800],
+                                  )
+                              ),
+                            ]
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+
 
             ],
           ),
