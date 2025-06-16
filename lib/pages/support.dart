@@ -283,6 +283,13 @@ class Support extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    // logo
+                    Image.asset(
+                      'lib/images/service.png',
+                    ),
                   ],
                 ),
               ),
