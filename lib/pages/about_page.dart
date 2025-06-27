@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vibehear/pages/support.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -188,7 +190,7 @@ class AboutPage extends StatelessWidget {
                     SizedBox(width: 6),
                     GestureDetector(
                       onTap: () async {
-                        final url = Uri.parse('https://example.com/');
+                        final url = Uri.parse('https://github.com/TannuSharma861');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url);
                         } else {
@@ -255,7 +257,7 @@ class AboutPage extends StatelessWidget {
                     SizedBox(width: 6),
                     GestureDetector(
                       onTap: () async {
-                        final url = Uri.parse('https://example.com');
+                        final url = Uri.parse('https://github.com/Codevek/');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url);
                         } else {
@@ -580,6 +582,274 @@ class AboutPage extends StatelessWidget {
 
                 SizedBox(height: 14),
 
+                Text(
+                  'Privacy Policy:',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(8, 129, 208, 1),
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                Text(
+                  'We care deeply about your privacy. This app is designed to keep your personal data safe and secure.',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+
+                Text(
+                  "1. No Data Collection:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 4,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "Vibe Hear does not collect, store, or share any personal information, audio recordings, or usage data. All operations occur locally on your device.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+
+                Text(
+                  "2. Offline-Only Functionality:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 4,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "The app does not access the internet at any point. Keyword detection, vibration alerts, and transcript features are all processed entirely on-device.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+
+                Text(
+                  "3. Microphone Usage:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 4,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "The app uses the device’s microphone only to detect pre-configured keywords. Audio is processed in real time and not stored or sent anywhere.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+
+                Text(
+                  "4. Custom Settings and Keywords:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 4,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "All user defined keywords, vibration patterns, and settings are saved locally. You can clear or edit this data at any time via the app settings.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+
+                Text(
+                  "5. No Advertisements or Trackers:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 4,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "This app does not include any form of advertising or third party tracking.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
+
+                Text(
+                  "6. Modifications:",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade800,
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 4,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    "The developers reserve the right to modify or discontinue any part of the application at any time without prior notice, especially as the app is in its prototype phase.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                ),
+                SizedBox(height: 14),
+
+                Divider(
+                  color: Colors.grey[400],
+                ),
+
+                SizedBox(height: 14),
+
+                Text(
+                  'Contact & Feedback:',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(8, 129, 208, 1),
+                    height: 1.3,
+                  ),
+                ),
+
+                SizedBox(height: 10),
+
+                RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.grey.shade800,
+                      height: 1.3,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'As a college research project, we are always looking for ways to improve. If you have suggestions, feedback, or concerns, please reach out to the development team or click ',
+                      ),
+                      TextSpan(
+                        text: 'here',
+                        style: TextStyle(
+                          color: Color.fromRGBO(8, 129, 208, 1),
+                          decoration: TextDecoration.underline,
+                          fontStyle: FontStyle.italic,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Support()
+                              ),
+                            );
+                          },
+                      ),
+                      TextSpan(
+                        text: ".",
+                      )
+                    ]
+                  ),
+
+
+                ),
+
+                SizedBox(
+                  height: 8,
+                ),
               ],
             ),
           ),
