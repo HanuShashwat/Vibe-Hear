@@ -324,7 +324,7 @@ class AboutPage extends StatelessWidget {
                     SizedBox(width: 6),
                     GestureDetector(
                       onTap: () async {
-                        final url = Uri.parse('https://example.com/');
+                        final url = Uri.parse('https://github.com/jahanaksh/');
                         if (await canLaunchUrl(url)) {
                           await launchUrl(url);
                         } else {
@@ -848,7 +848,7 @@ class AboutPage extends StatelessWidget {
                 ),
 
                 SizedBox(
-                  height: 8,
+                  height: 10,
                 ),
               ],
             ),

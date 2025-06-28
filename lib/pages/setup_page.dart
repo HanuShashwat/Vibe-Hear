@@ -317,15 +317,16 @@ class _SetupPageState extends State<SetupPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Home(
-                            firstName: firstName,
-                            middleName: middleName,
-                            lastName: lastName,
-                            nickName: nickName,
-                          )
+                        builder: (context) =>
+                            Home(
+                              firstName: firstName,
+                              middleName: middleName,
+                              lastName: lastName,
+                              nickName: nickName,
+                            ),
                       ),
                     );
-                  }
+                  };
                 },
                 child: Center(
                   child: Container(
@@ -350,7 +351,7 @@ class _SetupPageState extends State<SetupPage> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
