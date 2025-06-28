@@ -27,8 +27,8 @@ class BottomNavBar extends StatelessWidget {
               text: ' Home',
             ),
             GButton(
-              icon: Icons.vibration,
-              text: ' Vibration',
+              icon: Icons.label_important,
+              text: ' Key-Words',
             ),
             GButton(
               icon: Icons.menu_book,
